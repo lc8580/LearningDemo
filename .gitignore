@@ -2,8 +2,8 @@
 .gradle
 /local.properties
 /.idea/caches
-/.idea/libraries
 /.idea/modules.xml
+/.idea/libraries
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
