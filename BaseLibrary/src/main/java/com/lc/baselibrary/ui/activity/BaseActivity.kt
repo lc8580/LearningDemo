@@ -1,4 +1,4 @@
-package com.lc.baselibrary.view.activity
+package com.lc.baselibrary.ui.activity
 
 import android.os.Bundle
 import android.view.View
@@ -10,6 +10,8 @@ import org.jetbrains.anko.find
  * Created by LC on 2019/5/15
  */
 open class BaseActivity : RxAppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,4 +29,6 @@ open class BaseActivity : RxAppCompatActivity() {
             val content = find<FrameLayout>(android.R.id.content)
             return content.getChildAt(0)
         }
+
+
 }
