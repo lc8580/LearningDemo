@@ -11,8 +11,9 @@ import org.greenrobot.eventbus.EventBus
 /**
  * Created by LC on 2019/5/15
  */
-open class BasePresenter<T : BaseContract.IBaseView> : BaseContract.IBasePresenter<T>, LifecycleObserver {
-    var mView: T? = null
+abstract class BasePresenter<M : BaseContract.IBaseModel, V : BaseContract.IBaseView> :BaseContract.IBasePresenter<V>, LifecycleObserver{
+    protected var mModel: M? = null
+    protected var mView: V? = null
 
     private val isViewAttached: Boolean
         get() = mView != null
@@ -25,13 +26,13 @@ open class BasePresenter<T : BaseContract.IBaseView> : BaseContract.IBasePresent
     open fun useEventBus(): Boolean = false
 
 
-    override fun attachView(mView: T) {
+    override fun attachView(mView: V) {
         this.mView = mView
         if (this.mView is LifecycleOwner) {
             (this.mView as LifecycleOwner).lifecycle.addObserver(this)
-//            if (mModel != null && mModel is LifecycleObserver) {
-//                (mView as LifecycleOwner).lifecycle.addObserver(mModel as LifecycleObserver)
-//            }
+            if (mModel != null && mModel is LifecycleObserver) {
+                (mView as LifecycleOwner).lifecycle.addObserver(mModel as LifecycleObserver)
+            }
         }
 
         if (useEventBus()) {
@@ -46,8 +47,8 @@ open class BasePresenter<T : BaseContract.IBaseView> : BaseContract.IBasePresent
         }
         // 保证activity结束时取消所有正在执行的订阅
         unDispose()
-//        mModel?.onDetach()
-//        this.mModel = null
+        mModel?.onDetach()
+        this.mModel = null
         this.mView = null
         this.mCompositeDisposable = null
     }
@@ -67,7 +68,7 @@ open class BasePresenter<T : BaseContract.IBaseView> : BaseContract.IBasePresent
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroy(owner: LifecycleOwner) {
-        // detachView()
+//         detachView()
         owner.lifecycle.removeObserver(this)
     }
 
