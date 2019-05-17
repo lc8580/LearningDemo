@@ -6,7 +6,7 @@ import org.jetbrains.anko.toast
 /**
  * Created by LC on 2019/5/15
  */
-open class BaseMvpActivity<P : BaseContract.IBasePresenter<*>> : BaseActivity(), BaseContract.IBaseView {
+abstract class BaseMvpActivity<P : BaseContract.IBasePresenter<*>> : BaseActivity(), BaseContract.IBaseView {
 
 
     /**

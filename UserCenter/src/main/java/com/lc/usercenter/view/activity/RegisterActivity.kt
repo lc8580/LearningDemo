@@ -12,10 +12,10 @@ import org.jetbrains.anko.toast
  * Created by LC on 2019/5/15
  */
 class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterContract.IRegisterView {
+    override fun attachLayoutRes(): Int = R.layout.activity_register
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
         mPresenter = RegisterPresenter()
         mPresenter?.attachView(this)
         //  在分支上修改内容
@@ -24,7 +24,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterContract.
 
     private fun initView() {
         mRegisterBtn.setOnClickListener {
-            mPresenter?.register("","","")
+            mPresenter?.register("", "", "")
         }
     }
 
