@@ -1,5 +1,9 @@
 package com.lc.baselibrary.ext
 
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.Button
+import android.widget.EditText
 import com.lc.baselibrary.data.model.BaseResp
 import com.lc.baselibrary.data.net.HttpStatus
 import com.lc.baselibrary.data.net.exception.ExceptionHandle
@@ -57,6 +61,25 @@ fun <T : BaseResp<*>> Observable<T>.excute(
         override fun onError(e: Throwable) {
             view?.hideLoading()
             view?.showError(ExceptionHandle.handleException(e))
+        }
+    })
+}
+
+
+/*
+    扩展Button可用性
+ */
+fun Button.enable(et: EditText, method: () -> Boolean){
+    val btn = this
+    et.addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            btn.isEnabled = method()
         }
     })
 }

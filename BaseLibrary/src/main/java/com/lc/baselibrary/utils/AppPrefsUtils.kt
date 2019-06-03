@@ -3,14 +3,14 @@ package com.lc.baselibrary.utils
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
-import com.lc.baselibrary.common.BaseApplication
+import com.lc.baselibrary.common.BaseApp
 import com.lc.baselibrary.common.BaseConstant
 
 /*
     SP工具类
  */
 object AppPrefsUtils {
-    private var sp: SharedPreferences = BaseApplication.instance.getSharedPreferences(BaseConstant.TABLE_PREFS, Context.MODE_PRIVATE)
+    private var sp: SharedPreferences = BaseApp.instance.getSharedPreferences(BaseConstant.TABLE_PREFS, Context.MODE_PRIVATE)
     private var ed: Editor
 
     init {

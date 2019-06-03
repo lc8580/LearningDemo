@@ -8,7 +8,7 @@ import android.net.NetworkInfo
 import android.net.wifi.WifiManager
 import android.provider.Settings
 import android.telephony.TelephonyManager
-import com.lc.baselibrary.common.BaseApplication
+import com.lc.baselibrary.common.BaseApp
 import java.net.NetworkInterface
 import java.net.SocketException
 
@@ -70,7 +70,7 @@ object NetWorkUtil {
      * @return `true`: 是 `false`: 否
      */
     fun isConnected(): Boolean {
-        return isConnected(BaseApplication.instance)
+        return isConnected(BaseApp.instance)
     }
 
     /**

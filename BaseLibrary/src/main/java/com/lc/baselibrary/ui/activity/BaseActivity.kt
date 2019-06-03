@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.LayoutRes
+import com.lc.baselibrary.common.AppManager
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity
 import org.greenrobot.eventbus.EventBus
 import org.jetbrains.anko.find
@@ -29,7 +30,7 @@ abstract class BaseActivity : RxAppCompatActivity() {
         if (useEventBus()) {
             EventBus.getDefault().register(this)
         }
-//        AppManager.instance.addActivity(this)
+        AppManager.instance.addActivity(this)
     }
 
     override fun onDestroy() {
@@ -37,7 +38,7 @@ abstract class BaseActivity : RxAppCompatActivity() {
         if (useEventBus()) {
             EventBus.getDefault().unregister(this)
         }
-//        AppManager.instance.finishActivity(this)
+        AppManager.instance.finishActivity(this)
     }
 
     //获取Window中视图content

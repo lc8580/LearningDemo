@@ -11,7 +11,7 @@ import org.greenrobot.eventbus.EventBus
 /**
  * Created by LC on 2019/5/15
  */
-abstract class BasePresenter<M : BaseContract.IBaseModel, V : BaseContract.IBaseView> :BaseContract.IBasePresenter<V>, LifecycleObserver{
+abstract class BasePresenter<M : BaseContract.IBaseModel, V : BaseContract.IBaseView> : BaseContract.IBasePresenter<V>, LifecycleObserver {
     protected var mModel: M? = null
     protected var mView: V? = null
 
@@ -25,9 +25,14 @@ abstract class BasePresenter<M : BaseContract.IBaseModel, V : BaseContract.IBase
      */
     open fun useEventBus(): Boolean = false
 
+    /**
+     * 创建 Model
+     */
+    open fun createModel(): M? = null
 
     override fun attachView(mView: V) {
         this.mView = mView
+        mModel = createModel()
         if (this.mView is LifecycleOwner) {
             (this.mView as LifecycleOwner).lifecycle.addObserver(this)
             if (mModel != null && mModel is LifecycleObserver) {

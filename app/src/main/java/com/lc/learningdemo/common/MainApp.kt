@@ -1,11 +1,11 @@
 package com.lc.learningdemo.common
 
-import com.lc.baselibrary.common.BaseApplication
+import com.lc.baselibrary.common.BaseApp
 
 /*
     主工程 Application
  */
-class MainApplication: BaseApplication() {
+class MainApp: BaseApp() {
     override fun onCreate() {
         super.onCreate()
 

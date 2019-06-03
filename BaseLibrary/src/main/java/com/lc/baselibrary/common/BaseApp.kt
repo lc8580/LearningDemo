@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import kotlin.properties.Delegates
 
-open class BaseApplication : Application() {
+open class BaseApp : Application() {
 
 //    lateinit var appComponent: AppComponent
 
