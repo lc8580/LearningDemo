@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical">
+
+    <com.lc.baselibrary.widgets.HeaderBar
+        android:id="@+id/mHeaderBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rightText="注册"
+        app:titleText="登录"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        android:background="@drawable/border_corner_all"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/mMobileEt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_line_height"
+            android:background="@null"
+            android:drawableLeft="@drawable/icon_user_name"
+            android:drawablePadding="@dimen/common_padding_small"
+            android:hint="请输入手机号码"
+            android:inputType="phone"
+            android:paddingLeft="@dimen/common_padding_small"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_divider_height"
+            android:background="@color/common_divider"/>
+
+        <EditText
+            android:id="@+id/mPwdEt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_line_height"
+            android:background="@null"
+            android:drawableLeft="@drawable/icon_pwd"
+            android:drawablePadding="@dimen/common_padding_small"
+            android:hint="请输入密码"
+            android:inputType="textPassword"
+            android:paddingLeft="@dimen/common_padding_small"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/mLoginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin"
+        android:background="@drawable/btn_common_selector"
+        android:enabled="false"
+        android:padding="@dimen/common_padding_middle"
+        android:text="登录"
+        android:textColor="@color/common_white"/>
+
+    <TextView
+        android:id="@+id/mForgetPwdTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="@dimen/common_margin"
+        android:text="忘记密码？"
+        android:textColor="@color/common_blue"/>
+</LinearLayout>
